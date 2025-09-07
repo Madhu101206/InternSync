@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Internship Scheme - AI Allocation Engine</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/logo.png" alt="PM Internship Scheme">
+                <span>PM Internship AI Allocation</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#student-portal" class="nav-link">Student</a>
+                <a href="#organization-portal" class="nav-link">Organization</a>
+                <a href="#admin-portal" class="nav-link">Admin</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home/Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>AI-Powered Internship Allocation</h1>
+                <p>Connecting talent with opportunity through intelligent matching</p>
+                <div class="hero-buttons">
+                    <a href="#student-portal" class="btn btn-primary">Student Portal</a>
+                    <a href="#organization-portal" class="btn btn-secondary">Organization Portal</a>
+                    <a href="#admin-portal" class="btn btn-outline">Admin Login</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hero-image.svg" alt="AI Matching Illustration">
+            </div>
+        </section>
+
+        <!-- Student Portal -->
+        <section id="student-portal" class="portal-section">
+            <div class="section-header">
+                <h2>Student Portal</h2>
+                <p>Register, build your profile, and find the perfect internship match</p>
+            </div>
+            <div class="portal-content">
+                <div class="portal-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Registration & Profile</h3>
+                    <p>Create your account and build a comprehensive profile with skills, education, and preferences</p>
+                    <button class="btn-card" onclick="openStudentModal('register')">Get Started</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Find Internships</h3>
+                    <p>Browse opportunities matched to your profile and preferences</p>
+                    <button class="btn-card" onclick="openStudentModal('browse')">Browse Opportunities</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track Applications</h3>
+                    <p>Monitor your application status and matching progress</p>
+                    <button class="btn-card" onclick="openStudentModal('track')">View Status</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Assistant</h3>
+                    <p>Get personalized recommendations and skill gap analysis</p>
+                    <button class="btn-card" onclick="openChatbot()">Chat Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Portal -->
+        <section id="organization-portal" class="portal-section bg-light">
+            <div class="section-header">
+                <h2>Organization Portal</h2>
+                <p>List opportunities and find perfectly matched candidates</p>
+            </div>
+            <div class="portal-content">
+                <div class="portal-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Post Internships</h3>
+                    <p>Create detailed internship opportunities with requirements</p>
+                    <button class="btn-card" onclick="openOrgModal('post')">Post Opportunity</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-users"></i>
+                    <h3>View Candidates</h3>
+                    <p>Review AI-matched candidates for your opportunities</p>
+                    <button class="btn-card" onclick="openOrgModal('candidates')">View Matches</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Manage Interns</h3>
+                    <p>Track and manage selected interns through the program</p>
+                    <button class="btn-card" onclick="openOrgModal('manage')">Manage Program</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Portal -->
+        <section id="admin-portal" class="portal-section">
+            <div class="section-header">
+                <h2>Administration Portal</h2>
+                <p>Monitor and manage the allocation system</p>
+            </div>
+            <div class="portal-content">
+                <div class="portal-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Dashboard</h3>
+                    <p>View system analytics and allocation metrics</p>
+                    <button class="btn-card" onclick="openAdminModal('dashboard')">View Dashboard</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Configuration</h3>
+                    <p>Set allocation parameters and policy rules</p>
+                    <button class="btn-card" onclick="openAdminModal('config')">System Settings</button>
+                </div>
+                <div class="portal-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Fairness Monitor</h3>
+                    <p>Ensure equitable distribution across demographics</p>
+                    <button class="btn-card" onclick="openAdminModal('fairness')">View Reports</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section bg-light">
+            <div class="section-header">
+                <h2>About the AI Allocation Engine</h2>
+                <p>How our intelligent matching system works</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Optimized Matching Algorithm</h3>
+                    <p>Our AI engine considers multiple factors to create optimal matches:</p>
+                    <ul>
+                        <li>Technical skills and qualifications</li>
+                        <li>Academic background and achievements</li>
+                        <li>Location preferences and constraints</li>
+                        <li>Sector interests and career aspirations</li>
+                        <li>Equity and inclusion parameters</li>
+                    </ul>
+                    <p>The system ensures fair distribution while maximizing satisfaction for both students and organizations.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/ai-matching.svg" alt="AI Matching Process">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>PM Internship Scheme</h4>
+                <p>An initiative to connect students with meaningful industry experience</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#student-portal">Student Portal</a></li>
+                    <li><a href="#organization-portal">Organization Portal</a></li>
+                    <li><a href="#admin-portal">Admin Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: support@pminternship.gov.in</p>
+                <p>Helpdesk: 1800-123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PM Internship Scheme. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals will be inserted here by JavaScript -->
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbot-widget">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <h4>AI Assistant</h4>
+            <span id="chatbot-toggle">+</span>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-message bot-message">
+                    Hello! I'm your AI assistant. How can I help you with your internship search today?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your question...">
+                <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/student-module.js"></script>
+    <script src="js/organization-module.js"></script>
+    <script src="js/admin-module.js"></script>
+    <script src="js/matching-engine.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
